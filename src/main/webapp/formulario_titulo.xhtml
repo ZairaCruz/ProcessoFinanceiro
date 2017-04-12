@@ -1,0 +1,99 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Processo Financeiro</title>
+	<h:outputStylesheet library="bootstrap" name="bootstrap.css" />
+</h:head>
+<h:body>
+	<div class="panel panel-info">
+		<div class="panel-heading" align="center">Cadastro de Títulos</div>
+
+		<div class="panel-body">
+			<h:form>
+				<h:inputHidden value="#{tituloControle.titulo.id}" />
+				<h:inputHidden value="#{pessoaControle.pessoa.id}" />
+				<div class="form-group">
+					<h:outputLabel value="Data Criação:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.dtCriacao}" disabled="true">
+						<f:convertDateTime pattern="d 'de' MMMM 'de' yyyy" />
+					</h:inputText>
+				</div>
+
+				<div class="form-inline" style="margin-top: 20px;">
+
+					
+						<h:outputLabel value="Tipo de Título:">
+						</h:outputLabel>
+						<div class="col-sm-20">
+							<h:selectOneRadio class="form-control"
+								value="#{tituloControle.titulo.tipo}" id="Tipo">
+								<f:selectItem itemValue="P" itemLabel="A Pagar" />
+
+								<f:selectItem itemValue="R" itemLabel="A Receber" />
+							</h:selectOneRadio>
+						</div>
+					
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Numero:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.numero}" />
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Data Vencimento:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.dtVencimento}">
+						<f:convertDateTime dateStyle="short" />
+					</h:inputText>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Valor:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.vlTitulo}">
+
+					</h:inputText>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Taxa de Juros:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.txJuro}" />
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Desconto:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.vlDesconto}" />
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="CNPJ Favorecido:" />
+					<h:selectOneMenu value="#{tituloControle.titulo.pessoa.cnpj}">
+						<f:selectItems var="pessoa"
+							value="#{tituloControle.listagemPessoa}"
+							itemValue="#{pessoa.cnpj}" itemLabel="#{pessoa.cnpj}" />
+					</h:selectOneMenu>
+
+				</div>
+
+				<h:commandButton class="btn btn-default" value="Gravar"
+					action="#{tituloControle.actionGravar}" />
+				<h:commandButton class="btn btn-default" value="Voltar"
+					action="index" />
+			</h:form>
+		</div>
+	</div>
+
+</h:body>
+
+</html>

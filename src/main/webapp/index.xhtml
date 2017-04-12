@@ -1,0 +1,32 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Processo Financeiro</title>
+	<h:outputStylesheet library="bootstrap" name="bootstrap.css" />
+</h:head>
+<h:body>
+	<div class="panel panel-info">
+		<div class="panel-heading" align="center">Processo Financeiro</div>
+
+		<div class="panel-body">
+			<h:form>
+				<div class="btn-group-vertical" align="center">
+					<h:commandButton class="btn btn-info" value="Cadastrar Pessoas" action="#{pessoaControle.actionInserir}"/>
+					<h:commandButton class="btn btn-info" value="Inserir Titulos" action="#{tituloControle.actionInserir}"/>
+					<h:commandButton class="btn btn-info" value="Baixar Títulos" action="formulario_baixar"/>
+					<h:commandButton class="btn btn-info" value="Relatórios" action="lista_pessoa"/>
+					<h:commandButton class="btn btn-info" value="Excluir Títulos"/>
+				</div>
+			</h:form>
+		</div>		
+	</div>
+
+</h:body>
+
+</html>

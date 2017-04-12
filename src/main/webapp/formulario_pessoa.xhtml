@@ -1,0 +1,89 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Processo Financeiro</title>
+	<h:outputStylesheet library="bootstrap" name="bootstrap.css" />
+</h:head>
+<h:body>
+	<div class="panel panel-info">
+		<div class="panel-heading" align="center">Cadastro de Pessoas</div>
+
+		<div class="panel-body">
+			<h:form>
+				<div class="form-group">
+					<h:outputLabel value="Nome:" />
+					<h:inputText class="form-control"
+						value="#{pessoaControle.pessoa.nome}" />
+				</div>
+				<div class="radio-inline">
+					<h:selectOneRadio class="form-control"
+						value="#{pessoaControle.pessoa.tipo}" id="Tipo">
+						<f:selectItem itemValue="F" itemLabel="Pessoa Física" />
+
+						<f:selectItem itemValue="J" itemLabel="Pessoa Juridica" />
+					</h:selectOneRadio>
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="CNPJ ou CPF:" />
+					<h:inputText class="form-control"
+						value="#{pessoaControle.pessoa.cnpj}" />
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Data Nascimento:" />
+					<h:inputText class="form-control"
+						value="#{pessoaControle.pessoa.dtNascimento}">
+						<f:convertDateTime dateStyle="short" />
+					</h:inputText>
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Logradouro:" />
+					<h:inputText class="form-control"
+						value="#{pessoaControle.pessoa.logradouro}" />
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Número:" />
+					<h:inputText class="form-control"
+						value="#{pessoaControle.pessoa.numero}" />
+				</div>
+				<div class="form-group">
+					<h:outputLabel value="Bairro" />
+					<h:inputText class="form-control"
+						value="#{pessoaControle.pessoa.bairro}" />
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="CEP:" />
+					<h:inputText class="form-control"
+						value="#{pessoaControle.pessoa.cep}" />
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Cidade:" />
+					<h:inputText class="form-control"
+						value="#{pessoaControle.pessoa.cidade}" />
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="UF:" />
+					<h:inputText class="form-control"
+						value="#{pessoaControle.pessoa.uf}" />
+				</div>
+
+				<h:commandButton class="btn btn-default" value="Gravar"
+					action="#{pessoaControle.actionGravar}" />
+				<h:commandButton class="btn btn-default" value="Voltar"
+					action="index" />
+			</h:form>
+		</div>
+	</div>
+
+</h:body>
+
+</html>

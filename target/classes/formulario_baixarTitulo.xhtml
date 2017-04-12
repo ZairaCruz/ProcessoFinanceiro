@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>
+	<title>Processo Financeiro</title>
+	<h:outputStylesheet library="bootstrap" name="bootstrap.css" />
+</h:head>
+<h:body>
+	<div class="panel panel-info">
+		<div class="panel-heading" align="center">Baixar Título</div>
+		<div class="panel-body">
+			<h:form>
+				<h:inputHidden value="#{tituloControle.titulo.id}" />
+				<h:inputHidden value="#{pessoaControle.pessoa.id}" />
+
+				<div class="form-group">
+					<h:outputLabel value="Numero:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.numero}" disabled="true"/>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Data Vencimento:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.dtVencimento}" disabled="true">
+						<f:convertDateTime dateStyle="short" />
+					</h:inputText>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Valor:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.vlTitulo}" disabled="true">
+
+					</h:inputText>
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Taxa de Juros:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.txJuro}" />
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="Desconto:" />
+					<h:inputText class="form-control"
+						value="#{tituloControle.titulo.vlDesconto}" />
+				</div>
+
+				<div class="form-group">
+					<h:outputLabel value="CNPJ Favorecido:" />
+					<h:selectOneMenu value="#{tituloControle.titulo.pessoa.cnpj}">
+						<f:selectItems var="pessoa"
+							value="#{tituloControle.listagemPessoa}"
+							itemValue="#{pessoa.cnpj}" itemLabel="#{pessoa.cnpj}" disabled="true"/>
+					</h:selectOneMenu>
+
+				</div>
+
+				<h:commandButton class="btn btn-default" value="Gravar"
+					action="#{tituloControle.actionGravar}" />
+				<h:commandButton class="btn btn-default" value="Voltar"
+					action="index" />
+			</h:form>
+		</div>
+	</div>
+
+</h:body>
+</html>
